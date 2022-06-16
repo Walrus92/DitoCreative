@@ -1,0 +1,21 @@
+{
+    "python.pythonPath": "C:\\Users\\morci\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",   /* Adaptar esta línea */
+    "python.linting.enabled": true,  
+    "python.linting.pylintPath": "pylint",
+    "python.linting.pylintEnabled": true,
+    "python.languageServer": "Pylance",
+    "python.linting.pycodestyleEnabled": false, 
+    "python.analysis.useImportHeuristic": true,    
+    "python.linting.pycodestyleArgs": ["--ignore=E501,E226,E116"],
+    "python.formatting.autopep8Args": ["--max-line-length=200"],
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django",
+        "--disable=django-not-configured,missing-module-docstring,missing-class-docstring"
+    ],
+    "python.linting.pylamaEnabled": false,
+    "python.linting.banditEnabled": false,
+    "python.linting.mypyEnabled": false,
+    "python.linting.prospectorEnabled": false,
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.flake8Enabled": false
+}
