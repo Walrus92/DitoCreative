@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    container_name: crooks-backend
+    ports:
+      - "3000:3000"
+    networks:
+      - crooks-net
+    volumes:
+      - crooks-sqlite-data:/app/prisma  # Monta la carpeta completa, no el archivo
+
+  frontend:
+    build:
+      context: ./frontend
+    env_file:
+      - ./frontend/.env
+    container_name: crooks-frontend
+    ports:
+      - "3001:80"
+    networks:
+      - crooks-net
+    depends_on:
+      - backend
+
+  admin:
+    build:
+      context: ./frontend/admin-panel
+    env_file:
+      - ./frontend/admin-panel/.env
+    container_name: crooks-admin
+    ports:
+      - "3002:80"
+    networks:
+      - crooks-net
+    depends_on:
+      - backend
+
+volumes:
+  crooks-sqlite-data:
+
+networks:
+  crooks-net:
+    driver: bridge
